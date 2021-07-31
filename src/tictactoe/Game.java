@@ -1,15 +1,11 @@
 package tictactoe;
 
-import java.util.ArrayList;
-
 public class Game {
 
     private final char PLAYER = 'X';
     private final char AI = 'O';
 
     private char[] places = new char[9];
-    private ArrayList<Integer> playerMarks = new ArrayList<>();
-    private ArrayList<Integer> aiMarks = new ArrayList<>();
 
     public Game() {
         for (int i = 0; i < places.length; i++) {
@@ -145,21 +141,11 @@ public class Game {
             }
         }
         if (isEmptyPlace(bestMove)) {
-            if (aiMarks.size() > 2) {
-                places[aiMarks.get(0)] = ' ';
-                aiMarks.remove(0);
-            }
             places[bestMove] = AI;
-            aiMarks.add(bestMove);
         }
     }
 
     public void takePlace(int index) {
-        if (playerMarks.size() > 2) {
-            places[playerMarks.get(0)] = ' ';
-            playerMarks.remove(0);
-        }
         places[index] = PLAYER;
-        playerMarks.add(index);
     }
 }
